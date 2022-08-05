@@ -1,0 +1,6 @@
+<div>
+    <div *ngFor="let item of items">
+      <p> {{ item.name }} </p>
+      <button (click)="viewDetails(item.id)"> View Details</button>
+    </div>
+  </div>
