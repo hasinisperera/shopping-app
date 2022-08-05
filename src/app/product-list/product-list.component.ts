@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService } from './../services/products.service';
 
@@ -7,7 +7,7 @@ import { ProductsService } from './../services/products.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
   items: any;
   
@@ -23,9 +23,12 @@ export class ProductListComponent implements OnInit {
       });
   }
   
-  viewDetails(id: number) {
-    this.router.navigate(['/'+id]);
-    console.log(id);
+  viewDetails(item: any) {
+    this.router.navigate(['/'+item]);
   }
-
+  
+  ngOnDestroy(): void {
+    // this.items.unsubscribe();
+  }
+  
 }

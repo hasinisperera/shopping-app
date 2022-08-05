@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3rem;
+    width: 100%;
+    height: max-content;
+
+    .img-container {
+        width: 50%;
+        height: 30%;
+        align-items: flex-start;
+    }
+
+    .btn-container {
+        float: right;
+        align-items: flex-end;
+    }
+
+    .size-container {
+        height: 1rem;
+        min-width: 1.5rem;
+        background-color: #FBFBFB;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        margin: 0.5rem;
+    }
+}

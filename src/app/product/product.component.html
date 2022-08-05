@@ -1,1 +1,15 @@
-<p>product works!</p>
+<div class="container">
+    <h1>{{item?.name}}</h1>
+    <p> {{item?.brandName}}</p>
+    <img src={{item?.mainImage}} class="img-container">
+    <p> {{item?.price.amount}} {{item?.price.currency}}</p>
+    <p>{{item?.description}}</p>
+    <p> {{item?.stockStatus}}</p>
+    <p> Available in sizes: 
+        <span *ngFor="let size of item?.sizes" class="size-container"> {{size}} </span>
+    </p>
+    <div class="btn-container">
+        <button mat-raised-button (click)="navigatetoProducts()"> Continue Shopping</button>
+        <button mat-raised-button (click)="addToCart(item)" [disabled]="isAdded"> {{isAdded? 'Added to cart': 'Add to cart'}}</button>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'shopping-app';
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
+
+  navigateToCart() {
+    this.router.navigate(['/cart']);
+  }
+  
+  navigateToHome() {
+    this.router.navigate(['']);
+  }
 
 }

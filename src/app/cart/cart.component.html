@@ -1,1 +1,13 @@
-<div> Cart </div>
+<div class="container">
+    <div *ngFor="let item of items">
+        <mat-card>
+            <mat-card-content class="card-container">
+                <span> {{ item.name }} </span>
+                <img src={{item.mainImage}} class="img-container">
+                <span> {{item.price.amount}} {{item?.price.currency}}</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div style="float: right; padding-right: 2rem;" *ngIf="total > 0"> Total : {{total}}</div>
+    <div *ngIf="total==0.0"> Cart is Empty</div>
+</div>

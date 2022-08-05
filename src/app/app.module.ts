@@ -12,6 +12,7 @@ import { CartComponent } from './cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { CartService } from './services/cart.service';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule 
   ],
   providers: [
-    ProductsService
+    ProductsService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

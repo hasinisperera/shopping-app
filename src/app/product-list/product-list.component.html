@@ -1,6 +1,15 @@
-<div>
+<div class="container">
     <div *ngFor="let item of items">
-      <p> {{ item.name }} </p>
-      <button (click)="viewDetails(item.id)"> View Details</button>
+        <mat-card>
+            <mat-card-content class="card-container">
+                <span> {{ item.name }} </span>
+                <img src={{item.mainImage}} class="img-container">
+                <span> {{item.price.amount}} {{item?.price.currency}}</span>
+                <div class="btn-container">
+                    <button mat-raised-button color="accent" (click)="viewDetails(item.id)"> View
+                        Details</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
     </div>
-  </div>
+</div>
