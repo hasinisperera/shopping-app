@@ -8,17 +8,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './services/products.service';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { CartComponent } from './cart/cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule, 
+    MatButtonModule,
+    MatCardModule 
   ],
   providers: [
     ProductsService
