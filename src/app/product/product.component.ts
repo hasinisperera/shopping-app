@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { ProductsService } from './../services/products.service';
+import { cartItem } from '../model';
 
 @Component({
   selector: 'app-product',
@@ -15,6 +16,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   isAdded: boolean = false;
   products:any;
   subscription:any ;
+  cartItem: cartItem |null = null;
+  selectedSize:number = 0;
 
   constructor(
     private productsService: ProductsService,
@@ -46,17 +49,30 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   // Add an item to the cart
   addToCart(item: any) {
+    this.cartItem = {
+      id: item.id,
+      mainImage: item.mainImage,
+      name: item.name,
+      size: this.selectedSize,
+      price: {
+        amount: item.price.amount,
+        currency: item.price.currency
+      },
+      amount: 1
+    }
     this.isAdded = true;
-    this.cartService.addToCart(item);
-    console.log(this.cartService.getNumberOfItems());
+    this.cartService.addToCart(this.cartItem);
   }
 
   ngOnDestroy(): void {
     // Unsubscribe to subscriptions upon onDestroy
-    console.log(typeof this.subscription);
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+  }
+
+  selectSize(size: number) {
+    this.selectedSize = size;
   }
 
 }

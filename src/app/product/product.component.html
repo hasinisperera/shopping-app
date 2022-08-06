@@ -1,15 +1,17 @@
 <div class="container">
+    <button mat-raised-button class="btn-container" (click)="navigatetoProducts()"> Back to products</button>
     <h1>{{item?.name}}</h1>
     <p> {{item?.brandName}}</p>
     <img src={{item?.mainImage}} class="img-container">
     <p> {{item?.price.amount}} {{item?.price.currency}}</p>
     <p>{{item?.description}}</p>
     <p> {{item?.stockStatus}}</p>
-    <p> Available in sizes: 
-        <span *ngFor="let size of item?.sizes" class="size-container"> {{size}} </span>
+    <p> Available in sizes:
+        <button mat-raised-button style="margin: 0.25rem;" *ngFor="let size of item?.sizes" (click)="selectSize(size)"
+            [disabled]="isAdded"> {{size}} </button>
     </p>
-    <div class="btn-container">
-        <button mat-raised-button (click)="navigatetoProducts()"> Continue Shopping</button>
-        <button mat-raised-button (click)="addToCart(item)" [disabled]="isAdded || item?.stockStatus!=='IN STOCK'"> {{item?.stockStatus=='In STOCK'? 'Add to cart': isAdded? 'Added to cart': 'Add to cart'}}</button>
-    </div>
+    <p *ngIf="selectedSize>0"> Selected size: {{selectedSize}}</p>
+    <button mat-raised-button class="btn-container" (click)="addToCart(item)"
+        [disabled]="isAdded || item?.stockStatus!=='IN STOCK'"> {{item?.stockStatus=='In STOCK'? 'Add to cart': isAdded?
+        'Added to cart': 'Add to cart'}}</button>
 </div>

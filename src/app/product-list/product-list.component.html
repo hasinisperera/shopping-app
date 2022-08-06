@@ -5,6 +5,7 @@
                 <span> {{ item.name }} </span>
                 <img src={{item.mainImage}} class="img-container">
                 <span> {{item.price.amount}} {{item?.price.currency}}</span>
+                <span> {{item?.stockStatus}}</span>
                 <div class="btn-container">
                     <button mat-raised-button color="accent" (click)="viewDetails(item.id)"> View
                         Details</button>

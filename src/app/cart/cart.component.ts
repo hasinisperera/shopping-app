@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { cartItem } from '../model';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { CartService } from '../services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  items: any;
+  items: Array<cartItem> | null = null;
   total: number = 0.0;
   
   constructor(
@@ -18,6 +19,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.items = this.cartService.getItems();
     this.total = this.calculateTotal(this.items);
+    console.log(this.items);
   }
 
   // Calculate total cost of items in the cart
