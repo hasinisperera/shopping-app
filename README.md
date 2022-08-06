@@ -1,6 +1,28 @@
 # ShoppingApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+This is an application implemented with the basic functionality of an ecommerce application. Users can 
+1. View the list of products available.
+2. View more details of a selected product.
+3. Add selected product to cart.
+
+## Implementation
+
+Product list, Product and Cart are three different components to increase modularity of the application. Angular router is used for navigation.
+On navigating to the application product list is shown. 
+Once an item is selected router navigates to Product component.
+Services are used to retrieve product list from the API and to manage cart.
+
+
+## Steps
+1. Create a new angular project.
+2. Generate components ProductList, Product and Cart
+3. Add angular routing to navigate between the pages.
+4. In ProductList component the list of products is shown including buttons to navigate to selected product.
+5. In Product compenent detailed information on a product is shown including a button to navigate back to product list and a button to add the product to cart.
+6. Nav bar is added to navigate to home (product list) or cart from anywhere in the applicatioin.
+7. In Cart component the list of items added to the cart are shown including the total cost of the items.
+8. Dependency injection principle to is used to share data between components using services which supports loose coupling of components.
+9. In ProductService product details are retrieved from the url as an observable and in components where observerbale is subscribed are unsubscribed in OnDestroy.
 
 ## Development server
 
@@ -9,19 +31,3 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
