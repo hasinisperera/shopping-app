@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'shopping-app';
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private cartService: CartService) {
   }
 
   navigateToCart() {
@@ -18,6 +21,10 @@ export class AppComponent {
   
   navigateToHome() {
     this.router.navigate(['']);
+  }
+
+  getCartLength() {
+    return this.cartService.getNumberOfItems();
   }
 
 }

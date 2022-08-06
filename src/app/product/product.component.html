@@ -10,6 +10,6 @@
     </p>
     <div class="btn-container">
         <button mat-raised-button (click)="navigatetoProducts()"> Continue Shopping</button>
-        <button mat-raised-button (click)="addToCart(item)" [disabled]="isAdded"> {{isAdded? 'Added to cart': 'Add to cart'}}</button>
+        <button mat-raised-button (click)="addToCart(item)" [disabled]="isAdded || item?.stockStatus!=='IN STOCK'"> {{item?.stockStatus=='In STOCK'? 'Add to cart': isAdded? 'Added to cart': 'Add to cart'}}</button>
     </div>
 </div>

@@ -16,4 +16,8 @@ export class CartService {
   getItems() {
     return this.items;
   }
+
+  getNumberOfItems() {
+    return this.items.length;
+  }
 }
