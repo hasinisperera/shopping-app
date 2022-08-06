@@ -19,7 +19,6 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.items = this.cartService.getItems();
     this.total = this.calculateTotal(this.items);
-    console.log(this.items);
   }
 
   // Calculate total cost of items in the cart
