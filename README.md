@@ -10,15 +10,15 @@ This is an application implemented with the basic functionality of an ecommerce 
 Product list, Product and Cart are three different components to increase modularity of the application. Angular router is used for navigation.
 On navigating to the application product list is shown. 
 
-![alt text](https://drive.google.com/file/d/1XDwM_um9RER_ZGrRoUnEPTFYzK2bBn8k/view?usp=sharing)
+<img src="https://drive.google.com/file/d/1XDwM_um9RER_ZGrRoUnEPTFYzK2bBn8k/view?usp=sharing" alt="Alt text" title="Product List">
 
 Once an item is selected router navigates to Product component.
 
-![alt text](https://drive.google.com/file/d/1iVYxD4gppL_BZ7QrsSCgqWp2P_fiUkkt/view?usp=sharing)
+<img src="https://drive.google.com/file/d/1iVYxD4gppL_BZ7QrsSCgqWp2P_fiUkkt/view?usp=sharing" alt="Alt text" title="Product">
 
 Services are used to retrieve product list from the API and to manage cart.
 
-![alt text](https://drive.google.com/file/d/1Erj6UpF_QzIzhjSzKq2bDflAd2_M45rU/view?usp=sharing)
+<img src="https://drive.google.com/file/d/1Erj6UpF_QzIzhjSzKq2bDflAd2_M45rU/view?usp=sharing" alt="Alt text" title="Cart">
 
 ## Steps
 1. Create a new angular project.
