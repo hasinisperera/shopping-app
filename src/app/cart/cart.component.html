@@ -4,8 +4,8 @@
             <mat-card-content class="card-container">
                 <span> {{ item.name }} </span>
                 <img src={{item.mainImage}} class="img-container">
-                <span> {{item.price.amount}} {{item.price.currency}}</span>
-                <span> size: {{item?.size}}</span>
+                <p> size: {{item?.size}}</p>
+                <p> {{item.price.amount}} {{item.price.currency}}</p>
             </mat-card-content>
         </mat-card>
     </div>
