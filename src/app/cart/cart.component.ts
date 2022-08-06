@@ -17,9 +17,16 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
-    this.items.forEach((item: { price: { amount: string; }; }) => {
-      this.total += parseFloat(item.price.amount);
-    })
+    this.total = this.calculateTotal(this.items);
+  }
+
+  // Calculate total cost of items in the cart
+  calculateTotal(items: any) {
+    let total = 0.0
+    items.forEach((item: { price: { amount: string; }; }) => {
+      total += parseFloat(item.price.amount);
+    });
+    return total;
   }
 
 }

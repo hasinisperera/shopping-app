@@ -10,6 +10,7 @@ import { ProductsService } from './../services/products.service';
 export class ProductListComponent implements OnInit, OnDestroy {
 
   items: any;
+  subscription: any;
   
   constructor(
     private productsService: ProductsService,
@@ -17,18 +18,22 @@ export class ProductListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.productsService.getProducts()
+    this.subscription =this.productsService.getProducts()
       .subscribe(response => {
         this.items = response.data;
       });
   }
   
+  // Navigate to product to view more details
   viewDetails(item: any) {
     this.router.navigate(['/'+item]);
   }
   
   ngOnDestroy(): void {
-    // this.items.unsubscribe();
+    // Unsubscribe to subscriptions upon onDestroy
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
   
 }

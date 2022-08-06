@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { isEmpty } from 'rxjs';
 import { CartService } from '../services/cart.service';
 import { ProductsService } from './../services/products.service';
 
@@ -15,6 +14,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   item: any;
   isAdded: boolean = false;
   products:any;
+  subscription:any ;
 
   constructor(
     private productsService: ProductsService,
@@ -27,7 +27,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.route.params.subscribe(param => {
       this.id = param['id'];
     })
-    this.productsService.getProducts()
+    this.subscription = this.productsService.getProducts()
       .subscribe(response => {
         this.item = response.data.find((obj: { id: number | null; }) => obj.id === this.id);
     });
@@ -39,10 +39,12 @@ export class ProductComponent implements OnInit, OnDestroy {
     });
   }
 
+  // Navigate to product list
   navigatetoProducts() {
     this.router.navigate(['']);
   }
 
+  // Add an item to the cart
   addToCart(item: any) {
     this.isAdded = true;
     this.cartService.addToCart(item);
@@ -50,7 +52,11 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // this.item.unsubscribe();
+    // Unsubscribe to subscriptions upon onDestroy
+    console.log(typeof this.subscription);
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
 }

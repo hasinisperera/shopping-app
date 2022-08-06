@@ -15,14 +15,17 @@ export class AppComponent {
     private cartService: CartService) {
   }
 
+  // Navigate to cart page
   navigateToCart() {
     this.router.navigate(['/cart']);
   }
   
+  // Navigate to product list
   navigateToHome() {
     this.router.navigate(['']);
   }
 
+  // Get the number of items in the cart
   getCartLength() {
     return this.cartService.getNumberOfItems();
   }
